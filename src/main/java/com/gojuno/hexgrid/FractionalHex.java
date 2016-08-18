@@ -37,4 +37,22 @@ public class FractionalHex {
 
         return new Hex(q, r);
     }
+
+    @Override
+    public String toString() {
+        return String.format("fraction_hex{q: %d, r: %d}", q, r);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!FractionalHex.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+        FractionalHex other = (FractionalHex)obj;
+
+        return other.q == q && other.r == r;
+    }
 }

@@ -66,4 +66,26 @@ public class HexGrid {
         }
         return neighbors;
     }
+
+    public Region createRegion(Point[] geometry) {
+        return new Region(this, geometry);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("hex_grid{orientation: %s, origin: %s, size: %s, mort: %s}", orientation.toString(), origin.toString(), size.toString(), mort.toString());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!HexGrid.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+        HexGrid other = (HexGrid)obj;
+
+        return other.orientation.equals(orientation) && other.origin.equals(origin) && other.size.equals(size) && other.mort.equals(mort);
+    }
 }

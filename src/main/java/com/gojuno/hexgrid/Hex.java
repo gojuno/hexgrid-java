@@ -23,7 +23,7 @@ public class Hex {
 
     @Override
     public String toString() {
-        return String.format("Hex{q: %d, r: %d}", q, r);
+        return String.format("hex{q: %d, r: %d}", q, r);
     }
 
     @Override

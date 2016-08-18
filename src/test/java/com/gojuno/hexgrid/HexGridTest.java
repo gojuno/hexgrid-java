@@ -3,7 +3,8 @@ package com.gojuno.hexgrid;
 import com.gojuno.morton.Morton64;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class HexGridTest {
     @Test
@@ -69,12 +70,28 @@ public class HexGridTest {
     public void testNeighbors() {
         HexGrid grid = new HexGrid(Orientation.FLAT, new Point(10, 20), new Point(20, 10), new Morton64(2, 32));
         Hex hex = grid.hexAt(new Point(666, 666));
-        long[] expectedNeighboors = new long[]{
+        long[] expectedNeighbors = new long[]{
                 920, 922, 944, 915, 921, 923, 945, 916, 918,
                 926, 948, 917, 919, 925, 927, 960, 962, 968};
         Hex[] neighbors = grid.hexNeighbors(hex, 2);
         for (int i = 0; i < neighbors.length; i++) {
-            assertEquals(expectedNeighboors[i], grid.hexToCode(neighbors[i]));
+            assertEquals(expectedNeighbors[i], grid.hexToCode(neighbors[i]));
         }
+    }
+
+    @Test
+    public void testRegion() {
+        HexGrid grid = new HexGrid(Orientation.FLAT, new Point(10, 20), new Point(20, 10), new Morton64(2, 32));
+        Point[] geometry = new Point[]{
+                new Point(20, 30), new Point(20, 40), new Point(40, 60),
+                new Point(60, 40), new Point(50, 30), new Point(40, 40)};
+        Region region = grid.createRegion(geometry);
+        Hex[] hexes = region.getHexes();
+        long[] hexCodes = new long[hexes.length];
+        for (int i = 0; i < hexes.length; i++) {
+            hexCodes[i] = grid.hexToCode(hexes[i]);
+        }
+        long[] expectedHexCodes = new long[]{2, 1, 3, 9, 4};
+        assertArrayEquals(expectedHexCodes, hexCodes);
     }
 }
