@@ -1,1 +1,14 @@
 * HexGrid
+** Basics
+Configurable hex grid on abstract surface.
+** Examples
+#+BEGIN_SRC java
+import com.gojuno.morton.Morton64;
+import com.gojuno.hexgrid.*;
+
+HexGrid grid = new HexGrid(Orientation.FLAT, new Point(10, 20), new Point(20, 10), new Morton64(2, 32));
+Hex hex = grid.hexAt(new Point(50, 50));
+Hex[] neighbors = grid.HexNeighbors(hex, 2);
+Region region = grid.createRegion(new Point[]{new Point(0, 0), new Point(0, 10), new Point(10, 10), new Point(10, 0)});
+Hex[] hexesInRegion = region.getHexes();
+#+END_SRC
