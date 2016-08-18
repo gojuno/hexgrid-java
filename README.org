@@ -10,7 +10,7 @@ HexGrid grid = new HexGrid(Orientation.FLAT, new Point(0, 0), new Point(20, 10),
 Hex hex = grid.hexAt(new Point(50, 50));
 long code = grid.hexToCode(hex);
 Hex resoredHex = grid.hexFromCode(code);
-Hex[] neighbors = grid.HexNeighbors(hex, 2);
+Hex[] neighbors = grid.hexNeighbors(hex, 2);
 Region region = grid.createRegion(new Point[]{
         new Point(0, 0), new Point(0, 10), new Point(10, 10), new Point(10, 0)});
 Hex[] hexesInRegion = region.getHexes();
