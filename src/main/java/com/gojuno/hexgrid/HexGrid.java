@@ -73,7 +73,7 @@ public class HexGrid {
 
     @Override
     public String toString() {
-        return String.format("hex_grid{orientation: %s, origin: %s, size: %s, mort: %s}", orientation.toString(), origin.toString(), size.toString(), mort.toString());
+        return String.format("hexgrid{orientation: %s, origin: %s, size: %s, mort: %s}", orientation.toString(), origin.toString(), size.toString(), mort.toString());
     }
 
     @Override

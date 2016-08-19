@@ -83,7 +83,7 @@ public class HexGridTest {
     public void testRegion() {
         HexGrid grid = new HexGrid(Orientation.FLAT, new Point(10, 20), new Point(20, 10), new Morton64(2, 32));
         Point[] geometry = new Point[]{
-                new Point(20, 30), new Point(20, 40), new Point(40, 60),
+                new Point(20, 19.99999), new Point(20, 40), new Point(40, 60),
                 new Point(60, 40), new Point(50, 30), new Point(40, 40)};
         Region region = grid.createRegion(geometry);
         Hex[] hexes = region.getHexes();
@@ -91,7 +91,7 @@ public class HexGridTest {
         for (int i = 0; i < hexes.length; i++) {
             hexCodes[i] = grid.hexToCode(hexes[i]);
         }
-        long[] expectedHexCodes = new long[]{2, 1, 3, 9, 4};
+        long[] expectedHexCodes = new long[]{0, 2, 1, 3, 9, 4};
         assertArrayEquals(expectedHexCodes, hexCodes);
     }
 }

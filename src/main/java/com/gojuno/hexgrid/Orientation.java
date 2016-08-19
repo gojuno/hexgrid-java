@@ -51,12 +51,12 @@ public class Orientation {
     }
 
     private void prehashAngles() {
-        this.sinuses = new double[6];
-        this.consinuses = new double[6];
+        sinuses = new double[6];
+        consinuses = new double[6];
         for (int i = 0; i < 6; i++) {
-            double angle = 2.0 * Math.PI * (i + this.getStartAngle()) / 6.0;
-            this.sinuses[i] = Math.sin(angle);
-            this.consinuses[i] = Math.cos(angle);
+            double angle = 2.0 * Math.PI * (i + getStartAngle()) / 6.0;
+            sinuses[i] = Math.sin(angle);
+            consinuses[i] = Math.cos(angle);
         }
     }
 
