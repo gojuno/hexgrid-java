@@ -21,7 +21,7 @@ public class FractionalHex {
         return -(q + r);
     }
 
-    public Hex ToHex() {
+    public Hex toHex() {
         long q = Math.round(getQ());
         long r = Math.round(getR());
         long s = Math.round(getS());

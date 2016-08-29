@@ -29,7 +29,7 @@ public class HexGrid {
         double y = (point.getY() - origin.getY()) / size.getY();
         double q = orientation.getB()[0] * x + orientation.getB()[1] * y;
         double r = orientation.getB()[2] * x + orientation.getB()[3] * y;
-        return (new FractionalHex(q, r)).ToHex();
+        return (new FractionalHex(q, r)).toHex();
     }
 
     public Point hexCenter(Hex hex) {
