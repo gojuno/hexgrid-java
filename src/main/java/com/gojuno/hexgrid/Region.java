@@ -77,7 +77,7 @@ public class Region {
         return hexes;
     }
 
-    public boolean Contains(Hex hex) {
+    public boolean contains(Hex hex) {
         return lookup.containsKey(grid.hexToCode(hex));
     }
 
