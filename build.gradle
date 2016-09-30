@@ -1,0 +1,54 @@
+apply plugin: 'java'
+
+buildscript {
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "com.gojuno.morton:morton-java:1.0.0"
+    testCompile "junit:junit:4.12"
+}
+
+ext {
+    bintrayUser = System.getenv("BINTRAY_USER")
+    bintrayKey = System.getenv("BINTRAY_API_KEY")
+
+    bintrayRepo = 'maven'
+    bintrayName = project.name
+
+    publishedGroupId = 'com.gojuno.hexgrid'
+    libraryName = project.name
+    artifact = project.name
+
+    libraryDescription = 'Configurable hex grid on abstract surface'
+
+    siteUrl = 'https://github.com/gojuno/hexgrid-java'
+    gitUrl = 'https://github.com/gojuno/hexgrid-java.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'iced'
+    developerName = 'Andrew Kirilenko'
+    developerEmail = 'iced@gojuno.com'
+
+    licenseName = 'The BSD 3-Clause License'
+    licenseUrl = 'https://github.com/gojuno/hexgrid-java/blob/master/LICENSE'
+    allLicenses = ["BSD-3-Clause"]
+
+    gpgSign = true
+    gpgPassphrase = System.getenv("BINTRAY_GPG_PASSPHRASE")
+}
+
+apply from: "https://raw.githubusercontent.com/gojuno/bintray-upload/master/bintray-upload.gradle"
+apply from: "https://raw.githubusercontent.com/gojuno/bintray-upload/master/pom-generator.gradle"
