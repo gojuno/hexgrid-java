@@ -1,5 +1,8 @@
 apply plugin: 'java'
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 buildscript {
 
     repositories {
@@ -16,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compile "com.gojuno.morton:morton-java:1.0.0"
+    compile "com.gojuno.morton:morton-java:1.0.1"
     testCompile "junit:junit:4.12"
 }
 
@@ -36,7 +39,7 @@ ext {
     siteUrl = 'https://github.com/gojuno/hexgrid-java'
     gitUrl = 'https://github.com/gojuno/hexgrid-java.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'iced'
     developerName = 'Andrew Kirilenko'
